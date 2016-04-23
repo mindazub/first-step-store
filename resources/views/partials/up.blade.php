@@ -1,4 +1,4 @@
-<div style="background: #d35400; padding: 10px;">
+<div style="background: #7f8c8d; padding: 10px;">
 	<div class="container">
 		<div class="pull-right">
 			@if (Auth::guest())
