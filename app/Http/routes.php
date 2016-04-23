@@ -14,3 +14,10 @@
 Route::get('/', 'ProductsController@index');
 
 Route::get('/products/{id}', 'ProductsController@show');
+
+
+Route::get('/home', 'HomeController@index');
+
+
+
+Route::auth();

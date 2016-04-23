@@ -23,4 +23,12 @@ class ProductsController extends Controller
     	// dd($product);
     	return view('products.show')->with('product', $product)->with('categories', $categories);;
     }
+
+    public function search(Request $request) {
+        $results = Product::where('title', 'LIKE', '%'. $request->get('searchKeyWords') .'%')
+        // ->orWhere('email', 'LIKE', '%'. Input::get('searchKeyWords') .'%')
+        // ->orWhere('password', 'LIKE', '%'. Input::get('searchKeyWords') .'%')
+        ->get();
+    return View::make('products.search')->with('results', $results);
+}
 }
