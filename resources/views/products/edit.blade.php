@@ -1,28 +1,24 @@
 @extends('layout.app')
 
-@section('categories')
 
-<div class="col-md-3">
-    <!-- <p class="lead">Shop Name</p>                 -->
-    <div class="list-group">
-        @foreach($categories as $category)
-            <a href="#" class="list-group-item">{{ $category->name }}</a>
-        @endforeach
-    </div>
-</div>
-
-@stop
 
 
 @section('content')
 
                     <div class="container">
                         <div>
-                            <a href="{{ route('products.edit', [$product->id]) }}" class="btn btn-sm btn-info">Edit</a>
+                            <a href="#" class="btn btn-sm btn-success">Save</a>
                                   
-                            <a href="#" class="btn btn-sm btn-danger">Delete</a>    
+                            <a href="#" class="btn btn-sm btn-default">Cancel</a>    
                         </div>
                     </div>
+
+                    {!! Form::open(['route' => 'products/{ $product->id }', 'id' => $product->id ]) !!}
+
+                        {{ method_field(PATCH) }}
+                        {{ Form::titile('title') }}
+                    {!! Form::close() !!}
+
 
 <div class="thumbnail">
 

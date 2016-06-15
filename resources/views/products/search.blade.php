@@ -3,23 +3,18 @@
 @section('categories')
 
 <div class="col-md-3">
-    <p class="lead">Categories</p>                
+    <!-- <p class="lead">Shop Name</p>                 -->
     <div class="list-group">
         @foreach($categories as $category)
             <a href="#" class="list-group-item">{{ $category->name }}</a>
         @endforeach
     </div>
 
-    <div>
-        <a href="#" class="btn btn-sm btn-info">Edit</a>
-        <a href="#" class="btn btn-sm btn-danger">Delete</a>
-    </div>
-
-    <!-- <div class="list-group">
+    <div class="list-group">
         <a href="#" class="list-group-item">Facebook</a>
-        <a href="#" class="list-group-item">Twitter</a>
-        <a href="#" class="list-group-item">GooglePlus</a>
-    </div> -->
+        <a href="#" class="list-group-item">Facebook</a>
+        <a href="#" class="list-group-item">Facebook</a>
+    </div>
 </div>
 
 @stop
@@ -28,6 +23,8 @@
 @section('content')
 
 <!-- <h1>Products list</h1> -->
+
+<h1>Searched: {{ }}</h1>
 
 @foreach ($products->chunk(3) as $chunk)
     <div class="row">

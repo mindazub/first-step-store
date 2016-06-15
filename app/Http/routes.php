@@ -13,11 +13,15 @@
 
 Route::get('/', 'ProductsController@index');
 
-Route::get('/products/{id}', 'ProductsController@show');
+Route::resource('products', 'ProductsController');	
+
+// Route::get('/products/{id}', 'ProductsController@show');
+// Route::post('/products/{id}', 'ProductsController@update');
+// Route::get('/products/{id}/edit', 'ProductsController@edit');
 
 
 Route::get('/home', 'HomeController@index');
 
-
+Route::get('/search', 'HomeController@search');
 
 Route::auth();

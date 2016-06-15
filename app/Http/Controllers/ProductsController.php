@@ -21,14 +21,17 @@ class ProductsController extends Controller
     	$categories = Category::all();
     	$product = Product::findOrFail($id);
     	// dd($product);
-    	return view('products.show')->with('product', $product)->with('categories', $categories);;
+    	return view('products.show')->with('product', $product)->with('categories', $categories);
     }
 
-    public function search(Request $request) {
-        $results = Product::where('title', 'LIKE', '%'. $request->get('searchKeyWords') .'%')
-        // ->orWhere('email', 'LIKE', '%'. Input::get('searchKeyWords') .'%')
-        // ->orWhere('password', 'LIKE', '%'. Input::get('searchKeyWords') .'%')
-        ->get();
-    return View::make('products.search')->with('results', $results);
-}
+    public function search() {
+        $keyword = Input::get('keyword', '');
+        $products = User::SearchByKeyword($keyword)->get();
+        return view('products.search')->with('products', $products)->with('keyword', $keyword);
+    }
+
+    public function edit($id) {
+        $product = Product::findOrFail($id);
+        return view('products.edit')->with('product', $product);
+    }
 }
